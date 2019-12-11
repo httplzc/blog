@@ -1,0 +1,124 @@
+/**
+ * prism.js Ghost Incorporated theme for JavaScript, CSS and HTML
+ * @author James Ramsay
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation {
+	color: #999988;
+}
+
+.namespace {
+	color: #555555;
+}
+
+.token.property,
+.token.tag {
+	color: #000080;
+}
+
+.token.boolean,
+.token.number {
+	color: #009999;
+}
+
+.token.constant {
+  color: #008080;
+}
+
+.token.symbol {
+	color: #990073;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+	color: #d14;
+}
+
+.token.operator {
+	font-weight: bold;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #800080;
+	background: hsla(0,0%,100%,.5);
+}
+
+.token.atrule,
+.token.attr-value {
+	color: #07a;
+}
+
+.token.keyword {
+	font-weight: bold;
+}
+
+.token.regex,
+.token.important {
+	color: #009926;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	color: #800080;
+	cursor: help;
+}

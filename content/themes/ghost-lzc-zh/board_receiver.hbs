@@ -1,0 +1,92 @@
+{{!< default}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/comment_send.css"}}" />
+   <link rel="stylesheet" type="text/css" href="{{asset "css/commentStyle.css"}}" />
+<script type="text/javascript" src="{{asset "js/jquery_form.js"}}"></script>
+
+  <script type="text/javascript">
+      function handleIt() {
+       var keyData=$('#keyId')[0].value;
+       if(keyData.length==0)
+       {
+         showDialog("错误","内容不能为空");
+         return
+       }
+       $.get("/extra_api",
+                  {
+                      a:"get_board",
+                      key: keyData,
+                  },function(data,error){
+                        if(error!='success')
+                        {
+                         showDialog("错误","查询留言失败");
+                            return
+                        }
+                         resetForm();
+                         showResult(data)
+                  })
+
+      }
+
+      function showResult(data){
+          $("#result").html(data);
+      }
+
+        function resetForm()
+        {
+             $('#keyId')[0].value="";
+        }
+
+    </script>
+<style>
+    label {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    body {
+    }
+
+    input.data {
+        width: 50%;
+    }
+
+    .href_link {
+
+    }
+
+    .href_link:link,.href_link:visited{
+        text-decoration:none;  /*超链接无下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+    .href_link:hover{
+        text-decoration:underline;  /*鼠标放上去有下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+
+</style>
+{{>single_page_head page_title="查询留言" page_subtitle="find message"}}
+
+<div id="respond" class="comment-respond">
+        <form action="" method="post" id="commentform" class="comment-form"
+              novalidate="" target="_blank">
+            <p class="comment-form-author"><label for="author">秘钥 <span class="required">*</span></label> <input
+                    id="keyId"
+                    name="key"
+                    type="text"
+                    value=""
+                    size="30"
+                    maxlength="10"
+                    aria-required="true"
+                    required="required"
+					placeholder="请输入留言秘钥">
+            </p>
+            <p class="form-submit"><input name="submit" type="button" id="submit" class="send-btn" value="查询留言" onclick="handleIt();"/>
+            </p>
+            <p id="result">
+
+            </p>
+        </form>
+    </div>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebSite">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{#is "index"}}{{meta_title}} - {{@blog.description}}{{/is}}{{#is "post, page"}}{{meta_title}} - {{@blog.title}}{{/is}}{{#is "author, tag"}}{{meta_title}}{{/is}}
+    </title>
+    <meta name="description" content="{{meta_description}}">
+
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//fonts.googleapis.com" rel="dns-prefetch">
+    <link href="//google-analytics.com" rel="dns-prefetch">
+    <link href="//disqus.com" rel="dns-prefetch">
+
+    <link rel="prerender" href="http://firminoweb.disqus.com/count.js">
+    <link rel="prerender" href="http://firminoweb.disqus.com/embed.js">
+
+    <link rel="apple-touch-icon" href="{{asset "dist/img/apple-touch-icon.png"}}">
+    <link rel="icon" href="{{asset "dist/img/favicon.ico"}}">
+
+    <link href="https://twitter.com/firminoweb" rel="publisher">
+
+    <link rel="stylesheet" type="text/css" href="{{asset "dist/css/blackparrot.min.css"}}">
+
+    <link rel="manifest" href="/manifest.json">
+
+    {{ghost_head}}
+
+  </head>
+
+  <body id="bWrapper" class="bg-faded fadeIn animated {{body_class}}">
+
+    {{! OffSet Navigation }}
+    {{navigation}}
+    <div class="nav-overlay offsetMenu" id="navOverlay"></div>
+
+    {{! OffSet Search }}
+    {{> search}}
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    <footer id="lfooter">
+        <div class="py-3 bg-primary">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+
+                        <h4 class="text-white">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i> Follow
+                        </h4>
+
+                        <hr>
+
+                        <div class="mb-1 d-block">
+                            <a href="/rss" class="btn btn-rss" title="Feed RSS" target="_blank"><i class="fa fa-lg fa-rss-square"></i></a>
+
+                            <a href="https://www.facebook.com/firminous" class="btn btn-facebook" target="_blank"><i class="fa fa-lg fa-facebook-square" title="Facebook"></i></a>
+
+                            <a class="btn btn-twitter" href="https://twitter.com/firminoweb" title="Twitter" target="_blank"><i class="fa fa-lg fa-twitter-square"></i></a>
+
+                            <a class="btn btn-linkedin" href="https://www.linkedin.com/in/firminoweb" title="Linkedin" target="_blank"><i class="fa fa-lg fa-linkedin-square"></i></a>
+
+                            <a class="btn btn-inverse" href="https://github.com/firminoweb" title="Github" target="_blank"><i class="fa fa-lg fa-github"></i></a>
+                        </div>
+
+                        <hr class="hidden-md-up">
+                    </div>
+
+                    <div class="col-sm-12 col-md-4">
+
+                        <h4 class="text-white">
+                            <i class="fa fa-server" aria-hidden="true"></i> Hosted by
+                        </h4>
+
+                        <hr>
+
+                        <a href="https://m.do.co/c/9fdec9707d33" title="Digital Ocean Coupon" target="_blank">
+                            <img src="{{asset "dist/img/DO_Logo.png"}}" alt="Digital Ocean" height="32" class="mb-1">
+                        </a>
+
+                        <p class="small text-muted m-0">
+                            Crie sua conta clicando no logo da Digital Ocean e ganhe <span class="font-weight-bold text-white">$10 de Bônus</span>
+                        </p>
+
+                        <hr class="hidden-md-up">
+                    </div>
+
+                    <div class="col-sm-12 col-md-4">
+
+                        <div class="d-block">
+
+                            <h4 class="text-white">
+                                <i class="fa fa-envelope" aria-hidden="true"></i> Newsletter
+                            </h4>
+
+                            <hr>
+
+                            <p class="text-muted small m-0">Send your email and receive our updates.</p>
+                            {{subscribe_form}}
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="py-1 bg-inverse">
+            <div class="container">
+                <p class="text-muted text-xs-center small">
+                    <a href="" class="font-weight-bold">Macaw.ws</a> ©{{date format="YYYY"}} • Theme by <a href="http://macaw.ws" class="font-weight-bold" target="_blank">macaw.ws</a> • Published by <a class="font-weight-bold" href="http://ghost.org" target="_blank">Ghost</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+
+      // Put google font during DOM Load
+      var cb = function() {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = '//fonts.googleapis.com/css?family=Open+Sans:400,700';
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.insertBefore(l, h);
+      };
+
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+      
+    </script>
+    
+
+    <script type="text/javascript" src="{{asset "dist/js/blackparrot.min.js"}}" defer></script>
+
+    {{ghost_foot}}
+
+  </body>
+</html>

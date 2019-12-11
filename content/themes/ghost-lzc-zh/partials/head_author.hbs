@@ -1,0 +1,27 @@
+
+
+<div class="author">
+	{{#each author}}
+	{{/each}}
+    <a class="avatar" href="">
+        <img
+            src="{{author.image}}"
+            alt=""
+			href={{author.url}}>
+    </a>
+    <div class="info">
+        <span class="tag">作者</span>
+        <span class="name"><a class="name_content" href={{author.url}}>{{author.name}}</a></span>
+        <!-- 文章数据信息 -->
+        <div class="meta">
+            <span class="publish-time" datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY.MM.DD hh:mm "}}</span>
+            <span class="wordage">字数 {{extra_post.wordCount}}
+			</span>  
+            <span class="views-count">阅读 {{extra_post.readCount}}</span><span class="comments-count" value={{extra_post.commentCount}}>评论 {{extra_post.commentCount}}</span><span
+            class="likes-count">喜欢 {{extra_post.likeCount}}</span></div>
+    </div> 
+	
+</div>
+
+
+

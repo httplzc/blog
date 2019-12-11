@@ -1,0 +1,48 @@
+//-- Card --//
+
+.card {
+	box-shadow: 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.06);
+	border-color: transparent;
+}
+
+.card-inverse .card-blockquote > footer,
+.card-inverse .card-link,
+.card-inverse .card-text {
+	color: hsla(0,0,100%,.85);
+}
+
+.card-img-cover {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.card-block-title {
+	padding: .5rem 1rem;
+	.fa {
+		vertical-align: bottom;
+	}
+}
+
+.related {
+	.card-img-cover {
+		opacity: .5
+	}
+}
+
+.post,
+.page {
+	.card-group {
+		.card {
+			box-shadow: none;
+			&:first-child {
+				border-left: 0;
+			}
+			&:last-child {
+				border-right: 0;
+			}
+		}
+	}
+}

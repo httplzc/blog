@@ -1,0 +1,44 @@
+//-- Navbar --//
+
+// Brand/Icon
+.navbar-brand {
+  padding-bottom: 0;
+  img {
+    margin-right: .275rem;
+  }
+}
+
+.navbar-dark,
+.navbar-light {
+	.navbar-toggler {
+		color: inherit;
+		margin-left: .475rem;
+		background-image: none;
+	}
+}
+
+
+//Navbar Blocks
+.inverse-navbar {
+	.navbar-dark {
+		color: #fff;
+		background-image: linear-gradient(135deg, darken($gray-dark, 5%), $gray-dark, lighten($gray-dark, 5%));
+	}
+}
+
+//Only Home and Archive
+.home-template,
+.archive-template {
+	&:not(.tag-template) {
+		.navbar {
+			.navbar-brand {
+				display: none;
+			}
+			&.fadeIn {
+				.navbar-brand {
+					display: block;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script style="text/js" src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        function checkIsOpen() {
+            var ua = navigator.userAgent.toLowerCase();
+			alert("alert");
+			confirm("confirm");
+            var returnData;
+            if (/iphone|ipad|ipod/.test(ua)) {
+                if (typeof handler != 'undefined') {
+                    returnData = handler.isOpen();
+                }
+            } else if (/android/.test(ua)) {
+                if (typeof handler != 'undefined') {
+                    returnData = handler.isOpen();
+                }
+            }
+            console.log("qwekqlw;ek"+$("#name"))
+            $("#name").text("2323 "+returnData);
+        }
+    </script>
+</head>
+<body>
+<button id="name" onclick="checkIsOpen()">啊卡三等奖</button>
+</body>
+</html>

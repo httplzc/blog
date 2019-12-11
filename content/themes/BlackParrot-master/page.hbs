@@ -1,0 +1,38 @@
+{{!< default}}
+{{! Everything inside the #post tags pulls data from the page }}
+{{#post}}
+
+{{! Header & Cover }}
+<header class="bg-primary set-shadow mbs-cover mb-0 fadeIn animated">
+    <div class="cover-bg" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+	{{> navbar}}
+	<div class="cover-inner">
+	    <div class="container">
+
+	        <div class="text-xs-center fadeIn animated">
+	            <h1 class="display-4 font-weight-bold">
+	            	<a href="{{url absolute="true"}}" title="{{title}}" class="internal-link">{{title}}</a>
+	            </h1>
+	        </div>
+
+	    </div>
+	</div>
+</header>
+
+<main class="container" role="main">
+    <div class="row">
+
+        <article class="col-xs-12 article">
+
+            <div class="card mb-3">
+                <div class="p-3">
+                    {{content}}
+                </div>
+            </div>
+
+        </article>
+
+    </div>
+</main>
+{{/post}}

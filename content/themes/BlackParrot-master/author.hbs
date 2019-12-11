@@ -1,0 +1,63 @@
+{{!< default}}
+{{! Everything inside the #author tags pulls data from the author }}
+{{#author}}
+<header class="bg-primary set-shadow mbs-cover fadeIn animated">
+    <div class="cover-bg" {{#if cover}} style="background-image: url({{cover}})"{{/if}}></div>
+
+	{{> navbar}}
+
+	<div class="cover-inner">
+	    <div class="container">
+
+	        <div class="text-xs-center fadeIn animated">
+	            {{#if image}}
+	            <a href="{{url}}" title="{{name}}'s Posts" class="internal-link"><img class="rounded-circle img-thumbnail logo mb-2" alt="{{name}}" src="{{image}}"></a>
+	            {{/if}}
+	            <h1 class="font-weight-bold">
+	            	<a href="{{url absolute="true"}}" title="{{name}}" class="internal-link">{{name}}</a>
+	            </h1>
+
+				<p class="msb-desc-w"><i class="fa fa-file-text-o"></i> <strong>{{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</strong> {{#if location}}• <i class="fa fa-map-marker"></i> {{location}}{{/if}} {{#if website}}• <i class="fa fa-link"></i> <a href="{{website}}">{{website}}</a>{{/if}}</p>
+
+				{{#if bio}}
+	            <div class="mbs-bio-w mx-auto d-block p-1">
+	            	<em>{{bio}}</em>
+	            </div>
+	            {{/if}}
+	        </div>
+
+	    </div>
+    </div>
+</header>
+{{/author}}
+
+<main class="container" role="main">
+	{{#is "paged"}}
+	<section class="row">
+		<div class="col-xs-12">
+		  {{pagination}}
+		  <hr class="mb-3 mt-1">
+		</div>
+	</section>
+	{{/is}}
+
+	<section class="row">
+	    {{^is "paged"}}
+	    <div class="col-xs-12">
+	      <div class="card card-block-title bg-primary card-inverse">
+	        <h2 class="font-weight-bold mb-0 card-text" id="lposts"><i class="fa fa-file-text-o"></i> Latest Posts</h2>
+	      </div>
+	    </div>
+	    {{/is}}
+		<div class="col-xs-12">
+	    	{{> "loop"}}
+	    </div>
+    </section>
+
+	<section class="row">
+		<div class="col-xs-12">
+		  <hr class="mb-2 mt-2">
+		  {{pagination}}
+		</div>
+	</section>
+</main>

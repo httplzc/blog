@@ -1,0 +1,29 @@
+{
+  "name": "blackparrot",
+  "author": [
+    "Macaw.ws <https://macaw.ws>",
+    "João Firmino <https://github.com/firminoweb>"
+  ],
+  "description": "Clean, Elegant & Performatic Responsive Ghost Theme",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "Bootstrap",
+    "4",
+    "sass",
+    "skin",
+    "theme",
+    "CSS",
+    "retina",
+    "offcanvas",
+    "animations"
+  ],
+  "license": "MIT",
+  "homepage": "http://macaw.ws",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.5",
+    "font-awesome": "4.6.3",
+    "fluidvids": "2.4.1",
+    "scrollreveal": "3.2.0"
+  }
+}

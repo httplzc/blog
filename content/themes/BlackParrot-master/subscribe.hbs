@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebSite">
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{meta_title}}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{{asset "dist/img/apple-touch-icon.png"}}">
+    <link rel="icon" href="{{asset "dist/img/favicon.ico"}}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset "dist/css/blackparrot.min.css"}}">
+
+    {{ghost_head}}
+
+  </head>
+
+  <body id="bWrapper" class="bg-faded fadeIn animated {{body_class}}">
+
+    {{! OffSet Navigation }}
+    {{navigation}}
+    <div class="nav-overlay offsetMenu" id="navOverlay"></div>
+
+    {{! OffSet Search }}
+    {{> search}}
+
+    <main class="bg-faded mbs-cover full inverse-navbar fadeIn animated">
+
+        {{> navbar}}
+
+        <div class="cover-inner">
+            <div class="container">
+
+                <div class="text-xs-center fadeIn animated">
+
+                <div class="card card-block">
+                {{#if success}}
+                    <h1 class="display-4 font-weight-bold text-success mb-2">Subscribed!</h1>
+
+                    <hr>
+
+                    <p class="lead text-muted">
+                        You subscribed by Success! on <span class="font-weight-bold">{{@blog.title}}</span> with email address <em>{{email}}</em>.
+                    </p>
+
+                    <a href="/" class="btn btn-lg btn-secondary btn-slash btn-block internal-link" title="Voltar a Página Inicial">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i> Go back to Home!
+                    </a
+                {{else}}
+                    <h3 class="mb-2">Send your email address and receive our updates.</h3>
+
+                    <hr class="mb-2">
+
+                    {{subscribe_form
+                      form_class="input-group"
+                      input_class="form-control form-control-lg"
+                      button_class="btn btn-lg btn-secondary btn-slash"
+                      placeholder="Seu Email"
+                      autofocus="true"
+                    }}
+
+                {{/if}}
+                </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript">
+      var cb = function() {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = '//fonts.googleapis.com/css?family=Open+Sans:400,700';
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.insertBefore(l, h);
+      };
+
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+
+    <script type="text/javascript" src="{{asset "dist/js/blackparrot.min.js"}}" defer></script> 
+
+    {{ghost_foot}}
+
+  </body>
+</html>

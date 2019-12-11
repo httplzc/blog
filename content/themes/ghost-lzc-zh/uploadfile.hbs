@@ -1,0 +1,68 @@
+{{!< default}}
+<script type="text/javascript" src="{{asset "js/uploadfile.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/jquery_form.js"}}"></script>
+
+
+<style>
+    label {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+
+    input.filename {
+        width: 50%;
+    }
+
+    .href_link {
+
+    }
+
+    .href_link:link,.href_link:visited{
+        text-decoration:none;  /*超链接无下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+    .href_link:hover{
+        text-decoration:underline;  /*鼠标放上去有下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+    .out{
+      padding:3rem;
+      max-width: 710px;
+      border-bottom: none;
+      position: relative;
+     background-color: white;
+     margin: 0 auto;
+    }
+
+</style>
+{{>single_page_head page_title="小云盘" page_subtitle="上传文件"}}
+
+<div class="out">
+<form id="form" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="a" value="upload_file">
+    <label>
+        <input type="file" class="file" name="file" onchange="onFileChange(this)"/>
+    </label>
+    <label>
+        <input type="text" class="filename" name="filename"/>
+    </label>
+    <label>
+        <button type="submit" class="btn">开始上传</button>
+    </label>
+</form>
+
+
+<p>
+    <progress id="progress" max="100" value="0"></progress>
+    <span id="progress_text">0%</span></p>
+<p><span>文件总大小 </span><span id="total">0</span><span>  mb</span></p>
+<p><span>已上传大小 </span><span id="currentSize">0</span><span>  mb</span></p>
+<p><a href="/filelist" class="href_link">跳转文件列表</a></p>
+
+</div>
+
+

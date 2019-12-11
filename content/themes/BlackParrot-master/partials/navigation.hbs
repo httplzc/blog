@@ -1,0 +1,35 @@
+<nav id="offsetNav" class="nav-offset bg-inverse">
+	<div class="px-1 pt-1">
+		<button class="btn btn-danger btn-block offsetMenu btn-slash" type="button" id="offsetMenu">
+	        Close <i class="fa fa-close"></i>
+	    </button>
+	</div>
+
+    <hr>
+
+    <div class="pl-1 pr-1">
+        <ul class="nav nav-pills nav-stacked mb-1">
+			{{#foreach navigation}}
+			<li class="nav-item nav-{{slug}}" role="presentation">
+				<a href="{{url absolute="true"}}" class="internal-link nav-link {{#if current}}active{{/if}}" title="{{label}}">{{label}}</a>
+			</li>
+			{{/foreach}}
+        </ul>
+
+    </div>
+
+	<hr>
+
+	<div class="py-1 text-xs-center">
+		<a href="/rss" class="" title="Firmino.us Feeds"><i class="fa fa-rss-square fa-2x"></i></a>
+
+		<a href="https://www.facebook.com/firminous/" title="Like Firmino.us facebook fanpage" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+
+		<a href="https://twitter.com/firminoweb" title="Firmino.us tweets" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+
+		<a href="https://www.linkedin.com/in/firminoweb" title="Linkedin" target="_blank"><i class="fa fa-2x fa-linkedin-square"></i></a>
+
+		<a href="https://github.com/firminoweb" title="Github" target="_blank"><i class="fa fa-2x fa-github-square"></i></a>
+	</div>
+
+</nav>

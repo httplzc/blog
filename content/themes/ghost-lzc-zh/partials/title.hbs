@@ -1,0 +1,32 @@
+ <link rel="stylesheet" type="text/css" href="{{asset "css/index_title.css"}}" />
+<script type="text/javascript" src="{{asset "js/index_title.js"}}"></script>
+<div id="head_sticker" class="demo-header-bottom">
+    <div class="container-fluid">
+        <div class="row">
+                <nav id="head_navigation" class="demo-menu_nav">
+                    <ul class="menu_nav">
+                        <li class="active"><a class="smoot_scroll" id="page1">所有博文</a></li>
+                        <li><a class="smoot_scroll" id="page2">我的相册</a></li>
+                        <li><a class="smoot_scroll" id="page3">娱乐</a></li>
+                        <li><a class="smoot_scroll" id="page4">关于我</a>
+                        </li>
+                    </ul>
+                </nav><!--/.demo-menu_nav-->
+        </div><!--/.row-->
+        <form class="search"  action="/extra_api" accept-charset="UTF-8" method="get">
+            <input type="text" name="keyWord" id="bdcsMain" value="{{keyWord}}" placeholder="搜索"  maxlength="15" class="search-input">
+			<input class="submit" style="display: none" name="a" type="text" value="search"/>
+            <a class="search-btn" href="javascript:void(null)"><i class="ic-search"></i></a>
+            <!-- <div id="navbar-trending-search"></div> -->
+        </form>
+		
+		<i class="ic-search" id="phone_search"></i>
+		
+    </div><!--/.container-fluid-->
+	 <form class="seach_phone"  action="/extra_api" accept-charset="UTF-8" method="get">
+            <input type="text" name="keyWord" value="{{keyWord}}" placeholder="搜索"  maxlength="15" class="search-input" id="phone_search_btn">
+			<input class="submit" style="display: none" name="a" type="text" value="search"/>
+            <a class="search-btn-phone" href="javascript:void(null)"><i class="ic-search"></i></a>
+            <!-- <div id="navbar-trending-search"></div> -->
+        </form> 
+</div>

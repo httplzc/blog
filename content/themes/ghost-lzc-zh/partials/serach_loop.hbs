@@ -1,0 +1,90 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+    <style>
+        .search_head .sort-type {
+            padding-bottom: 1rem;
+            font-size: 1.2rem;
+			background: white;
+			padding: 1rem 0 1rem 0;
+			box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .18);
+			    margin-bottom: 1rem;
+        }
+
+        .search_head .sort-type a {
+            color: #969696;
+        }
+
+        .search_head .sort-type a.active, .search .main .sort-type a:hover {
+            color: #2f2f2f;
+			font-weight: bolder;
+        }
+
+        .search_head .result {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            font-size: 1.2rem;
+            color: #b4b4b4;
+        }
+		
+		.sort-type a {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		 cursor: pointer;
+	}
+	
+	@media (max-width: 500px)
+		{
+			.sort-type a {
+			margin-left: 1rem;
+			margin-right: 0.3rem;
+			}
+		}
+
+	
+
+
+    </style>
+<div id="content_group">
+
+    {{! This is the post loop - each post will be output using this markup }}
+    <div class="wrapper">
+<div class="search_head">
+    <div class="sort-type"><a class="{{equal orderType 0 "active" ""}}">综合排序</a><a class="{{equal orderType 1 "active" ""}}">热门文章</a>
+        <a class="{{equal orderType 2 "active" ""}}">最新发布</a><a class="{{equal orderType 3 "active" ""}}">最多评论</a></div>
+    <div class="result">{{totalCount}}个结果</div>
+</div>
+        <section class="masonry">
+            {{#foreach posts}}
+                <article class="post">
+                    <header class="post-header">
+                        <h2 class="post-title"><a href="{{postUrl}}">{{{title}}}</a></h2>
+                    </header>
+                    <section class="post-excerpt">
+                        <p>{{postContent}} <a class="read-more" href="{{postUrl}}">完整阅读</a></p>
+                    </section>
+                    <footer class="post-meta">
+                        {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />{{/if}}
+                        {{author}}
+                        {{tags prefix="  "}}
+                        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{time}}</time>
+                        <div class="extra_meta">
+                            <a>
+                                <i class="iconfont ic-list-read"></i> {{read_count}}
+                            </a>
+                            <a>
+                                <i class="iconfont ic-list-comments"></i> {{commentCount}}
+                            </a>
+                            <a><i class="iconfont ic-list-like"></i> {{likeCount}}</a>
+                        </div>
+                    </footer>
+                </article>
+
+            {{/foreach}}
+        </section>
+    </div>
+    {{>"index_left"}}
+    <div class="clear_float" style="height: 0px;clear: both"></div>
+</div>
+<ul class="pagination"><!---->
+    {{commentPager currentPage pagerCount}}
+</ul>

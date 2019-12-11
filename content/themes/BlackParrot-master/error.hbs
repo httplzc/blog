@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebSite">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+    <meta name="keywords" content="">
+
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Language" content="pt-br">
+
+    <link href="//ajax.googleapis.com" rel="dns-prefetch">
+    <link href="//google-analytics.com" rel="dns-prefetch">
+    <link href="//disqus.com" rel="dns-prefetch">
+
+    <link rel="apple-touch-icon" href="{{asset "dist/img/apple-touch-icon.png"}}">
+    <link rel="icon" href="{{asset "dist/img/favicon.ico"}}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset "dist/css/blackparrot.min.css"}}">
+
+    {{ghost_head}}
+
+  </head>
+
+  <body id="bWrapper" class="bg-faded bounceInRight animated {{body_class}}">
+
+    {{! OffSet Navigation }}
+    {{navigation}}
+    <div class="nav-overlay offsetMenu" id="navOverlay"></div>
+
+    {{! OffSet Search }}
+    {{> search}}
+
+    <main class="bg-inverse set-shadow mbs-cover full fadeIn animated">
+        <div class="cover-bg" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+        {{> navbar}}
+
+        <div class="cover-inner">
+            <div class="container">
+
+                <div class="text-xs-center fadeIn animated">
+                    <h1 class="display-4 font-weight-bold text-danger">
+                        <i class="fa fa-ban fa-3x"></i> <br>
+                        Page Not Found!
+                    </h1>
+                    <p class="lead text-muted">The page you are looking for was moved, removed, renamed or might never existed.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+      var cb = function() {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = '//fonts.googleapis.com/css?family=Open+Sans:400,700';
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.insertBefore(l, h);
+      };
+
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+
+    <script type="text/javascript" src="{{asset "dist/js/blackparrot.min.js"}}" defer></script> 
+    {{ghost_foot}}
+
+  </body>
+</html>

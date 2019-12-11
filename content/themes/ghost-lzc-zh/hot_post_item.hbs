@@ -1,0 +1,12 @@
+{{#foreach hot_posts}}
+<div class="feed-wrapper have-image">
+    <div class="content">
+        <div class="image-area"><a href="{{postUrl}}">
+            <figure class="fit-img"><img alt="Envato facebook Status" class="latest-item-thumb"
+                                         src="{{postImg}}">
+            </figure>
+        </a></div>
+        <div class="item-text"><h5><a href="{{postUrl}}">{{postTitle}}</a></h5><span class="item-meta">{{postTime}}</span></div>
+    </div>
+</div>
+{{/foreach}}

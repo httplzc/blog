@@ -1,0 +1,54 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! TODO: Add support for per article cover image }}
+<div class="article-cover">
+    <div>
+        {{#if @blog.cover}}<img src="{{@blog.cover}}" class="image">{{/if}}
+    </div>
+</div>
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+{{! Everything below outputs content of the the post which has been published }}
+<article>
+    <div class="container">
+        <header>
+            <div class="meta">
+                <span class="author">By <address><a href="{{author.website}}" rel="author" title="{{author.name}}" target="_blank">{{author.name}}</a></address> </span>{{#if tags}}on {{tags}}{{/if}} &mdash;
+                <time pubdate datetime="{{date format="YYYY-MM-DD"}}" title="{{date format='DD MMM YYYY'}}">{{date format='DD MMM YYYY'}}</time>
+            </div>
+            <h1 class="title">{{{title}}}</h1>
+            {{! TODO: Subtitle support }}
+            <!-- <h2 class="subtitle"> subtitle </h2> -->
+        </header>
+
+        <section>
+            {{content}}
+            
+            <div class="social">
+                <a class="icon-twitter" href="http://twitter.com/share?text={{title}}&amp;url={{url absolute="true"}}" target="_blank">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}" target="_blank">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <!-- <a class="icon-google-plus" href="#"><span class="hidden">Google+</span></a> -->
+            </div>
+        </section>
+
+        <footer>
+            <address>
+                {{#if author.image}}<img src="{{author.image}}">{{/if}}
+                Written by <strong><a rel="author" href="{{author.website}}" title="{{author.name}}" target="_blank">{{author.name}}</a></strong><br>
+                <span class="muted">{{author.bio}}</span>
+            </address>
+        </footer>
+
+        {{! TODO: Add disqus support }}
+    </div>
+</article>
+{{/post}}

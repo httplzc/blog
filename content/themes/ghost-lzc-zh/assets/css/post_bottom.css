@@ -1,0 +1,248 @@
+.follow-detail {
+    padding: 2rem 2rem 0 2rem;
+    background-color: hsla(0, 0%, 71%, .1);
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+	object-fit: cover;
+}
+
+.info .name_content {
+    text-decoration: none;
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+    color: #333;
+}
+
+.info span {
+    font-size: 1.2rem;
+    margin-left: 0.6rem;
+    color: #333;
+    font-family: dashicons, 'Segoe UI', 'WenQuanYi Micro Hei', 'WenQuanYi Micro Hei Mono', 'Microsoft Yahei', 'Microsoft Yahei Mono', 微软雅黑, sans-serif;
+
+}
+
+.follow-detail .signature {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+}
+
+.author_message_bottom { 
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e1e1e1;
+    color: #969696;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.avatar {
+    float: left;
+    margin-right: 0.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+.support-author {
+    padding: 1.5rem 0 1.5rem;
+    text-align: center;
+}
+
+.btn-pay {
+    margin-bottom: 0rem;
+    padding: 0.6rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ea6f5a;
+    border-radius: 4px;
+    display: inline-block;
+
+    margin-top: 1.5rem;
+}
+
+[class*="btn"]{ 
+	box-shadow: rgba(0, 0, 0, 0.117647) 0px 2px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 2px;
+}
+
+.alipay-code ,.wechat-code{
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+.alipay-img, .wechat-img {
+    display: block;
+    width: 8rem;
+    height: 8rem;
+}
+
+.money-code {
+    display: inline-block;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    box-shadow: 0 1px 1px 1px #efefef;
+}
+
+
+
+.pay_group {
+       position: absolute;
+    bottom: 6.5rem;
+    margin: auto;
+    display: none;
+  
+    left: 50%;
+    margin-left: -10.5rem;
+}
+
+.money-code b {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: #666;
+}
+
+.more-btn span {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 0;
+    text-decoration: none;
+}
+
+.more-btn {
+    margin-bottom: 0rem;
+    padding: 0.6rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ea6f5a;
+    border-radius: 4px;
+    display: inline-block;
+    /* margin-right: 10rem; */
+
+    text-align: center;
+    float: right;
+}
+
+@media (max-width: 500px)
+{
+	.more-btn{
+		display:none;
+	}
+}
+
+.share_baidu {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    line-height: 1rem;
+
+}
+
+.bdsharebuttonbox.bdshare-button-style1-24 {
+    display: inline-block;
+    text-align: center;
+}
+
+.like-group .like-button a {
+    color: #ea6f5a;
+    padding: 1.5rem 1.2rem 1.8rem 1.2rem;
+}
+
+.like-group .modal-wrap a {
+    color: #ea6f5a;
+    padding: 1.5rem 1.8rem 1.5rem 1.2rem;
+}
+
+.like-inactive .like-group .like-button a {
+    color: #FFF;
+    padding: 1.5rem 1.2rem 1.8rem 1.2rem;
+}
+
+.like-inactive .like-group .modal-wrap a {
+    color: #FFF;
+    padding: 1.5rem 1.8rem 1.5rem 1.2rem;
+}
+
+.like-group .modal-wrap {
+    font-size: 1.4rem;
+    border-left: 1px solid #ea6f5a;
+    display: inline-block;
+}
+
+.like-group .like-button {
+    font-size: 1.4rem;
+    display: inline-block;
+}
+
+.like-group {
+    padding: 1rem 0 1rem 0;
+    font-size: 0;
+    border: 1px solid #ea6f5a;
+    border-radius: 4rem;
+    line-height: normal; 
+    display:inline-block;
+}
+.like-inactive .like-group{
+	background: #ea6f5a;
+}
+
+.ic-like:before {
+    content: "\E663";
+    padding-right:1rem;
+	color:#ea6f5a;
+	font-family: ico_font;
+    font-style: normal;
+	font-size: 1rem;
+}
+
+
+.like-inactive .ic-like:before {
+    content: "\E661";
+    padding-right:1rem;
+	color:#FFF;
+	font-family: ico_font;
+    font-style: normal;
+	font-size: 1rem;
+}
+
+.like {
+    margin-top: 1.5rem;
+}
+
+.like-inactive {
+    margin-top: 1.5rem;
+}
+
+.info {
+    text-align: left;
+}
+
+.like-group:hover
+{
+	background: rgba(202, 172, 141, 0.17);
+}
+.like-inactive .like-group:hover
+{
+	background: #ea6f5a;
+}
+
+a
+{
+    text-decoration: none;
+    font-family: dashicons, 'Segoe UI', 'WenQuanYi Micro Hei', 'WenQuanYi Micro Hei Mono', 'Microsoft Yahei', 'Microsoft Yahei Mono', 微软雅黑, sans-serif;
+}
+
+

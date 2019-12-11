@@ -1,0 +1,263 @@
+.is-sticky .demo-header-bottom {
+    z-index: 999999;
+    background-color: #fff;
+}
+
+.demo-header-bottom {
+    box-shadow: 0 3px 8px #dddddd;
+    -webkit-box-shadow: 0 3px 8px #dddddd;
+    overflow: hidden;
+    /*width: 100%;*/
+    /*position: fixed;*/
+    /*top: 0px;*/
+}
+
+body {
+    display: block;
+    margin: 0px;
+}
+
+.container-fluid.row {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+#head_navigation .menu_nav {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+}
+
+#head_navigation .menu_nav_nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#head_navigation .menu_nav li {
+    display: inline-block;
+    position: relative;
+    text-align: -webkit-match-parent;
+}
+
+#head_navigation .menu_nav li.active a {
+    color: #14a6ab;
+}
+
+#head_navigation .menu_nav li a {
+    color: #222222;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+	 padding: 1.1rem 4rem;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.18s ease 0s;
+    transition: all 0.18s ease 0s;
+    position: relative;
+	cursor: pointer;
+}
+
+
+.search {
+    display: inline-block;
+    float: right;
+    position: absolute;
+    right: 2%;
+    /* top: 10px; */
+    /* bottom: 50%; */
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+#head_navigation .menu_nav li:after {
+    color: #b4b4b4;
+    content: "/";
+    position: absolute;
+    right: -4px;
+    top: 0.8em;
+}
+
+
+@media screen and (max-width:768px)
+{
+	#head_navigation .menu_nav li a{
+	 padding: 1rem 3rem;
+	}
+	.search{
+		display:none;
+	}
+	#head_navigation .menu_nav li:after {
+		top: 1em;
+	}
+}
+
+@media screen and (max-width:500px)
+{
+	#head_navigation .menu_nav li a{
+	 padding: 0.7rem 1rem;
+	}
+	.search{
+		display:none;
+	}
+	#head_navigation .menu_nav li:after {
+		top: 0.5em;
+	}
+}
+
+@media screen and (max-width:320px)
+{
+	#head_navigation .menu_nav li a{
+	 padding: 0.7rem 1rem;
+	}
+	#head_navigation .menu_nav li:after {
+		top: 0.5em;
+	}
+	.search{
+		display:none;
+	}
+}
+
+
+
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+
+
+#head_sticker {
+    background: #FFF;
+	z-index: 999999;
+}
+
+input {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+form.search .search-input {
+    width: 24rem;
+}
+
+form.search .search-input {
+    padding: 0 4rem 0 2rem;
+    width: 100px;
+    height: 3.3rem;
+    font-size: 1.3rem;
+    border: 1px solid #eee;
+    border-radius: 4rem;
+    background: #eee;
+    transition: width .5s;
+    -moz-transition: width .5s;
+    -webkit-transition: width .5s;
+    -o-transition: width .5s;
+}
+form.search .search-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 5px;
+    width: 3rem;
+    height: 3rem !important;
+    line-height: normal !important;
+    padding: 0 !important;
+    color: #969696 !important;
+    text-align: center;
+}
+
+#head_navigation {
+    text-align: center;
+}
+
+
+
+.container-fluid {
+    text-align: center;
+}
+
+.row {
+    display: inline-block;
+}
+
+
+nav form .ic-search {
+    margin: 5px -1px 0 0;
+    display: block;
+}
+.ic-search{
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 400!important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+.ic-search:before {
+    content: "\E618";
+    box-sizing: border-box;
+	font-family: ico_font;
+}
+
+i#phone_search {
+	display: none;
+        float: right;
+    margin: 15px 15px 15px 0;
+    right: 0;
+}
+
+.seach_phone{
+	 display: none;
+    z-index: 99999;
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+@media screen and (max-width:500px){
+	i#phone_search {
+	    display: inline-block;
+	}
+	.seach_phone{
+	display: none;
+	 z-index: 99999;
+	     text-align: center;
+    margin: 0 0 1rem 0;
+	}
+	.seach_phone input {
+    width: 90%;
+    height: 3rem;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    background: #eee;
+    transition: width .5s;
+    -moz-transition: width .5s;
+    -webkit-transition: width .5s;
+    -o-transition: width .5s;
+    padding: 0 1rem 0 1rem;
+}
+.seach_phone .search-btn-phone .ic-search{
+	    top: 0.2rem;
+    position: relative;
+}
+.seach_phone .search-btn-phone {
+       position: absolute;
+    right: 1rem;
+    padding-right: 1rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+}

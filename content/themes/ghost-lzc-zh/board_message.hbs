@@ -1,0 +1,31 @@
+<style>
+.detail
+{
+       display: block;
+
+       letter-spacing: inherit;
+
+}
+#time{
+color: #3156c3;
+ font-size: 1.6rem;
+}
+
+#detail{
+color: black;
+ font-size: 1.5rem;
+}
+.messages
+{
+    padding: 2rem;
+}
+</style>
+<div id="message-list" class="message-list">
+    {{#messages}}
+        <div class="messages">
+            <a id="time" class="detail">{{time}}</a>
+            <a class="detail">{{value}}</a>
+
+        </div>
+    {{/messages}}
+</div>

@@ -1,0 +1,38 @@
+//-- Contextual backgrounds --//
+.bg-primary {
+  background-image: linear-gradient(135deg, darken($brand-primary, 5%), $brand-primary, lighten($brand-primary, 5%))
+}
+
+.bg-secondary {
+  background-image: linear-gradient(135deg, darken($gray-light, 5%), $gray-light, lighten($gray-light, 5%))
+}
+
+.bg-inverse {
+  background-image: linear-gradient(135deg, darken($gray-dark, 5%), $gray-dark, lighten($gray-dark, 5%))
+}
+
+.bg-danger {
+  background-image: linear-gradient(135deg, darken($brand-danger, 5%), $brand-danger, lighten($brand-danger, 5%))
+}
+
+.set-shadow {
+	box-shadow: 0 1px 2rem rgba(0, 0, 0, 0.3), inset 0 0 15rem rgba(0,0,0,.5);
+}
+
+
+//Fix link
+.bg-primary,
+.bg-inverse,
+.bg-danger {
+	color: #fff;
+	a {
+		color: #fff !important;
+	}
+	hr {
+		border-top: 1px solid rgba(0,0,0,.2);
+	}
+}
+
+.bg-faded {
+  background-color: #f8fafc;
+}

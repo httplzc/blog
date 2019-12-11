@@ -1,0 +1,59 @@
+{{#foreach posts from="1" to="8"}}
+{{#is "home"}}
+{{^if featured}}
+<article class="card post mb-2 text-xs-center {{post_class}}">
+	<header class="pt-1">
+    <span class="card-text text-muted small">
+      {{#author}}
+      <a href="{{url}}" title="{{name}}" class="font-weight-bold internal-link text-muted">
+        <i class="fa fa-user"></i> {{name}}
+      </a>
+      {{/author}}
+      | <i class="fa fa-calendar"></i> <time datetime="{{date format='MM/DD/YYYY'}}">{{date format="MM/DD/YYYY"}}</time> | <a href="{{url}}#disqus_thread" class="internal-link  text-muted" title="Comments"><i class="fa fa-comments"></i> Comments</a>
+    </span>
+	</header>
+
+    <section class="card-block pt-0">
+    	<hr>
+      <h2 class="card-title display-4">
+        <a href="{{url}}" title="{{{title}}}" class="internal-link">{{{title}}}</a>
+      </h2>
+      <p class="card-text">{{excerpt words="26"}}</p>
+      {{#foreach tags}}
+      <a href="{{url}}" title="{{name}}" class="btn btn-tag btn-outline-secondary tag-{{id}} internal-link"><i class="fa fa-tag"></i> {{name}}</a>
+      {{/foreach}}
+    </section>
+    <footer class="card-footer p-0">
+      <a href="{{url}}" class="btn btn-secondary btn-block internal-link btn-slash">Read More »</a>
+    </footer>
+</article>
+{{/if}}
+{{else}}
+<article class="card post mb-2 text-xs-center {{post_class}}">
+  <header class="pt-1">
+      <span class="card-text text-muted small">
+      {{#author}}
+      <a href="{{url}}" title="{{name}}" class="font-weight-bold internal-link text-muted">
+        <i class="fa fa-user"></i> {{name}}
+      </a>
+      {{/author}}
+      | <i class="fa fa-calendar"></i> <time datetime="{{date format='MM/DD/YYYY'}}">{{date format="MM/DD/YYYY"}}</time> | <a href="{{url}}#disqus_thread" class="internal-link  text-muted" title="Comments"><i class="fa fa-comments"></i> Comments</a>
+    </span>
+  </header>
+
+    <section class="card-block pt-0">
+      <hr>
+      <h2 class="card-title display-4">
+        <a href="{{url}}" title="{{{title}}}" class="internal-link">{{{title}}}</a>
+      </h2>
+      <p class="card-text">{{excerpt words="26"}}</p>
+      {{#foreach tags}}
+      <a href="{{url}}" title="{{name}}" class="btn btn-tag btn-outline-secondary tag-{{id}} internal-link"><i class="fa fa-tag"></i> {{name}}</a>
+      {{/foreach}}
+    </section>
+    <footer class="card-footer p-0">
+      <a href="{{url}}" class="btn btn-secondary btn-block internal-link btn-slash">Read More »</a>
+    </footer>
+</article>
+{{/is}}
+{{/foreach}}

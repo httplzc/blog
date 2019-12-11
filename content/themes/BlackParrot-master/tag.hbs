@@ -1,0 +1,53 @@
+{{!< default}}
+{{! Header & Cover }}
+<header class="bg-primary set-shadow mbs-cover fadeIn animated">
+    <div class="cover-bg" {{#if tag.image}} style="background-image: url({{tag.image}})"{{/if}}></div>
+
+	{{> navbar}}
+
+	<div class="cover-inner">
+	    <div class="container">
+
+	        <div class="text-xs-center fadeIn animated">
+	            <h1 class="font-weight-bold display-4">
+	            	<a href="{{url absolute="true"}}" title="{{tag.name}}" class="internal-link"><i class="fa fa-tag"></i> {{tag.name}}</a>
+	            </h1>
+	            <p class="lead">
+	                {{tag.description}}
+	            </p>
+	        </div>
+
+	    </div>
+    </div>
+</header>
+
+<main class="container" role="main">
+	{{#is "paged"}}
+	<section class="row">
+		<div class="col-xs-12">
+		  {{pagination}}
+		  <hr class="m-b-3 m-t-1">
+		</div>
+	</section>
+	{{/is}}
+
+	<section class="row">
+	    {{^is "paged"}}
+	    <div class="col-xs-12">
+	      <div class="card card-block-title bg-primary card-inverse">
+	        <h2 class="font-weight-bold m-b-0 card-text" id="lposts"><i class="fa fa-file-text-o"></i> Latest Posts</h2>
+	      </div>
+	    </div>
+	    {{/is}}
+		<div class="col-xs-12">
+	    	{{> "loop"}}
+	    </div>
+    </section>
+
+	<section class="row">
+		<div class="col-xs-12">
+		  <hr class="m-b-2 m-t-2">
+		  {{pagination}}
+		</div>
+	</section>
+</main>

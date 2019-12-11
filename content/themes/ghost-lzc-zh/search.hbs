@@ -1,0 +1,97 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+ <link rel="stylesheet" type="text/css" href="{{asset "css/index_extra.css"}}" />
+ <link rel="stylesheet" type="text/css" href="{{asset "css/commentStyle.css"}}" />
+ <script type="text/javascript" src="{{asset "js/search.js"}}"></script>
+{{! The big featured header }}
+
+
+<style>
+
+span.search_result_keyword {
+    color: #0C8484;
+    font-weight: bold;
+}
+    .main-header {
+        max-height: 30vh;
+    }
+	 .page-title{
+            font-size: 3rem;
+        }
+
+        .masonry {
+            -moz-column-count: 1;
+            -webkit-column-count: 1;
+            column-count: 1;
+        }
+
+        ul.pagination {
+            display: block;
+            margin: 6rem auto 0 auto;
+        }
+		
+		
+		
+		@media (min-width: 992px)
+		{
+			div#content_group {
+				width: 70% !important;
+			}
+		
+			.col-md-4 {
+			width: 22% !important;
+			}
+		
+		.wrapper {
+			width: 73% !important;
+			}
+		}
+	
+
+</style>
+<header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+    <nav class="main-nav overlay clearfix">
+ {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img id="back_img" src="/back.png" alt="{{@blog.title}}" /><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+        {{#if @blog.navigation}}
+            <a class="menu-button icon-menu" href="#">
+                <label for="show-menu" class="word">菜单</label>
+            </a>
+        {{/if}}
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title" keyword="{{keyWord}}" page="{{currentPage}}">搜索 {{keyWord}} 结果</h1>
+        </div>
+    </div>
+</header>
+
+{{>"title"}}
+
+
+
+{{! The main content area on the homepage }}
+<main id="content" class="content" role="main">
+    <style>
+        .wrapper {
+            width: 75%;
+            margin: auto;
+            float: right;
+            position: relative;
+        }
+        @media screen and (max-width: 500px)
+        {
+            .wrapper {
+                width: 95%;
+                margin: 1.5rem auto 0 auto;
+                position: relative;
+                float: none;
+            }
+        }
+
+    </style>
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+	
+	 {{> "serach_loop"}}
+   
+
+</main>

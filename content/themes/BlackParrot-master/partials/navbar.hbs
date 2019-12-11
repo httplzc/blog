@@ -1,0 +1,20 @@
+<nav id="mainNav" class="navbar navbar-blocks navbar-fixed-top navbar-dark animated">
+
+    <div class="clearfix">
+        <a class="navbar-brand site-brand internal-link" id="brandNav" href="{{@blog.url}}" title="{{@blog.title}}">
+            {{#if @blog.logo}}
+            <img class="rounded-circle pull-left" width="32" alt="{{@blog.title}} - Logo" src="{{@blog.logo}}">{{/if}} <span class="h3 mb-0 font-weight-bold"
+            >{{@blog.title}}</span>
+        </a>
+
+        <button class="navbar-toggler offsetSearch pull-right" type="button" id="offsetMenu">
+          <i class="fa fa-search fa-lg"></i>
+        </button>
+
+        <button class="navbar-toggler offsetMenu pull-right" type="button" id="offsetMenu">
+          <i class="fa fa-navicon fa-lg"></i>
+        </button>
+
+    </div>
+
+</nav>

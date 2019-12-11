@@ -1,0 +1,179 @@
+{{!< default}}
+<script type="text/javascript" src="{{asset "js/uploadfile.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/jquery_form.js"}}"></script>
+
+<style>
+    label {
+        display: block;
+        margin: 2em 2em 2em 2em;
+    }
+
+    a {
+        margin: 1em;
+    }
+
+
+    .pagination {
+        width: 100%;
+    }
+
+    .pagination a {
+        font-family: sans-serif;
+    }
+
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 2rem 0;
+        border-radius: 4px;
+    }
+
+    .pagination li {
+        margin: 0 0.5rem;
+        display: inline-block;
+        line-height: 2rem;
+        vertical-align: middle;
+    }
+
+    .pagination .active {
+        font-weight: 700;
+        border: none;
+        pointer-events: none;
+        background: transparent;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        position: relative;
+        float: left;
+        padding: 0.5rem 1rem;
+        line-height: 1.5rem;
+        text-decoration: none;
+        color: #337ab7;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        margin-left: -1px;
+        cursor: pointer;
+    }
+
+    .pagination a {
+        font-size: 1.4rem;
+        color: #969696 !important;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+    }
+
+    .pagination .inactive:hover {
+        background-color: rgba(202, 172, 141, 0.17);
+    }
+
+    .comment-list .avatar {
+        margin-right: 1.3rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0.2rem;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .pagination a {
+        font-family: sans-serif;
+    }
+
+    .delete_btn {
+        margin-bottom: 0rem;
+        padding: 0.6rem 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #ea6f5a;
+        border-radius: 4px;
+        display: inline-block;
+
+        margin-top: 1.5rem;
+    }
+
+    [class*="btn"] {
+        box-shadow: rgba(0, 0, 0, 0.117647) 0px 2px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 2px;
+    }
+
+    [class*="btn"]:hover {
+        background-color: #c83323;
+    }
+
+    .delete_btn:hover {
+        color: rgb(255, 255, 255)
+    }
+
+    .href_link:link,.href_link:visited{
+        text-decoration:none;  /*超链接无下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+    .href_link:hover{
+        text-decoration:underline;  /*鼠标放上去有下划线*/
+        color: #0eb8ea;
+        font-size: 2rem;
+    }
+      .out{
+           padding:3rem;
+           max-width: 710px;
+           border-bottom: none;
+           position: relative;
+          background-color: white;
+          margin: 0 auto;
+         }
+        .top
+        {
+            margin-left: 1rem;
+        }
+
+</style>
+
+
+<script>
+    $(function () {
+        $(".delete_btn").click(function (doc) {
+            $.post({
+                url: "/extra_api",
+                data: {
+                    a: "delete_file",
+                    fileId: this.parentNode.id
+                },
+                success: function (data, status) {
+
+                    if (!data.code) {
+                        window.location.reload();
+                    }
+                    else {
+                        console.log(JSON.stringify(data.error));
+                        alert("删除文件错误");
+                    }
+                }
+            })
+        });
+    });
+</script>
+{{>single_page_head page_title="小云盘" page_subtitle="文件列表"}}
+
+<div class="out">
+
+<div id="file-list" class="file-list">
+    <div>
+        <p><a href="/uploadfile" class="href_link">跳转上传文件</a></p>
+        <div class="top"><span>{{fileCount}}个文件</span></div>
+    </div>
+    {{#files}}
+        <div id={{fileId}} class="file">
+            <a>{{uploadTime}}</a>
+            <a href="{{filePath}}">{{fileName}}</a>
+            <a class="delete_btn">删除</a>
+
+        </div>
+    {{/files}}
+</div>
+
+<div class="pagination"><!---->
+    {{commentPager currentPage pagerCount}}
+</div>
+
+</div>
+

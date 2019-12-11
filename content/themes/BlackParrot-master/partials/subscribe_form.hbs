@@ -1,0 +1,19 @@
+<form method="post" action="{{action}}" class="input-group {{form_class}} mb-2">
+  {{! This is required for the form to work correctly }}
+  {{hidden}}
+
+  {{input_email class="form-control form-control-lg" placeholder="Seu Email" value=""}}
+
+  <span class="input-group-btn">
+    <button class="btn btn-lg btn-secondary btn-slash {{button_class}}" type="submit">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  </button>
+  </span>
+
+  {{! This is used to get extra info about where this subscriber came from }}
+  {{script}}
+</form>
+
+{{#if error}}
+    <p class="text-danger">{{{error.message}}}</p>
+{{/if}}

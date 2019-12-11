@@ -1,0 +1,45 @@
+
+        .extra_meta {
+                display: inline-block;
+    margin-left: 8px;
+    padding-left: 12px;
+    /* border-left: 1px solid #d5dbde; */
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    padding-right: 0 !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    float: right;
+    margin-top: 1rem;
+        }
+		 .extra_meta span { 
+            margin-right: 1rem;
+            color: #b4b4b4;
+        }
+		.extra_meta a:hover {text-decoration: none;}
+		
+      
+
+        .extra_meta a {
+            margin-right: 1rem;
+			text-decoration: none;
+         
+        }
+		.extra_meta :before{
+			 font-family: ico_font;
+			 font-style: normal;
+		}
+
+        .ic-list-read:before {
+            content: "\E662";
+        }
+
+        .ic-list-comments:before {
+            content: "\E660";
+        }
+
+        .ic-list-like:before {
+            content: "\E661";
+        }

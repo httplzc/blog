@@ -1,0 +1,35 @@
+.site-wrapper {
+    background-color: #FFF;
+}
+.image-caption{
+    font-size: 0.9em;
+    min-width: 15%;
+    max-width: 80%;
+    min-height: 1.5rem;
+    display: inline-block;
+    padding: 0.8rem;
+    margin: 0 auto;
+    border-bottom: 1px solid #d9d9d9;
+    color: #969696;
+    line-height: 1.0
+}
+
+.image-package {
+    text-align: center;
+}
+
+table th, table td { 
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    line-height: 2rem;
+}
+
+table {
+    margin-bottom: 2rem;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    border-left: none;
+    word-break: normal;
+    border-spacing: 0;
+}
+

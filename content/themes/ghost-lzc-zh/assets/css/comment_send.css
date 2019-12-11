@@ -1,0 +1,94 @@
+label {
+    color: #707070;
+    color: rgba(51, 51, 51, 0.7);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 0.04em; 
+    line-height: 1.5;
+    text-transform: uppercase;
+	margin-bottom: 1.2rem;
+	margin-top: 1.2rem;
+}
+
+input {font-family: 'Microsoft YaHei','WenQuanYi Micro Hei','Microsoft Yahei Mono', 微软雅黑, sans-serif;}
+ 
+.required {
+    color: #c0392b;
+}
+
+input, textarea {
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    color: #707070;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb;
+    padding: 0.375em;
+    width: 100%;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    white-space: pre-wrap;
+    background-color: #f7f7f7;
+    line-height: 1.5rem;
+	padding: 1rem 0.5rem;
+	font-size:1.2rem;
+}
+
+.send-btn {
+    margin-top: 3rem;
+    padding: 1rem 8rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #ea6f5a;
+    border-radius: 4px;
+    display: inline-block;
+    /* margin-right: 10rem; */
+    text-align: center;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 2px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 2px;
+}
+
+#respond p{
+	margin-bottom:0px;
+	    font-size: 1.2rem;
+}
+
+h3#reply-title {
+    font-size: 1.7rem;
+	    margin-top: 2rem;
+}
+
+
+
+#respond {
+    border-top: 1px;
+    border-top-style: solid;
+    border-color: rgba(51, 51, 51, 0.1);
+	    background: #FFF;
+    margin-bottom: 0;
+	    margin-top: 0rem;  
+	padding: 0rem 2rem 1rem 2rem;
+}
+
+[class*="btn"]:hover {
+    background-color: #c83323;
+}
+
+.form-submit {
+    text-align: center;
+	    margin-bottom: 0;
+    padding-bottom: 4rem;
+}

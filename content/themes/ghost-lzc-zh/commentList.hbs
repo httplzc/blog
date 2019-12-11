@@ -1,0 +1,22 @@
+<div id="comment-list" class="comment-list">
+    <div>
+        <div class="top"><span>{{commentCount}}条评论</span></div>
+    </div>
+    {{#comments}}
+        <div id={{commentId}} class="comment">
+            <div class="comment_author">
+				<a class="avatar"><img src="/user_default.png"></a>
+                <div class="info"><a class="name">{{commentName}}</a> <!---->
+                    <div class="meta"><span>{{position}}楼 · {{commentTime}}</span></div>
+                </div>
+				  <span class="ip_aera">{{commentIpProvince}} {{commentIpCity}}网友</span>
+            </div>
+            <div class="comment-wrap"><p>{{{commentContent}}}</p>
+            </div>
+        </div> 
+    {{/comments}}
+</div> 
+<ul class="pagination"><!---->
+    {{commentPager currentPage pagerCount}}
+</ul>
+

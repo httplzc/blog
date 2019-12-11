@@ -1,0 +1,15 @@
+<nav class="card-group mb-3">
+	{{#if prev}}
+	<div class="card mb-0 text-xs-left">
+		<a href="{{page_url prev}}" title="Newer Posts" class="btn btn-primary btn-lg btn-block p-1 internal-link"><i class="fa fa-chevron-circle-left"></i> Previous Posts</a>
+	</div>
+	{{/if}}
+	<div class="card mb-0 p-1 text-xs-center">
+		<p class="h4">Page <strong>{{page}}</strong> of {{pages}}</p>
+	</div>
+	{{#if next}}
+	<div class="card mb-0 text-xs-right">
+		<a href="{{page_url next}}" title="Older Posts" class="btn btn-primary btn-lg btn-block p-1 internal-link">Next Posts <i class="fa fa-chevron-circle-right"></i></a>
+	</div>
+	{{/if}}
+</nav>

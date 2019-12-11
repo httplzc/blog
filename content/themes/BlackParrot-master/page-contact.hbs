@@ -1,0 +1,70 @@
+{{!< default}}
+{{! Everything inside the #post tags pulls data from the page }}
+{{#post}}
+
+{{! Header & Cover }}
+<header class="bg-primary set-shadow mbs-cover mb-0 fadeIn animated">
+    <div class="cover-bg" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+	{{> navbar}}
+
+	<div class="cover-inner">
+	    <div class="container">
+
+	        <div class="text-xs-center fadeIn animated">
+	            <h1 class="display-4 font-weight-bold">
+	            	<a href="{{url absolute="true"}}" title="{{title}}" class="internal-link">{{title}}</a>
+	            </h1>
+	            <p class="lead">{{excerpt characters="140"}}</p>
+	        </div>
+
+	    </div>
+	</div>
+</header>
+
+<main class="container" role="main">
+    <div class="row">
+
+        <article class="col-xs-12 article">
+
+            <div class="card mb-3">
+
+                <iframe
+                  width="100%"
+                  height="350"
+                  frameborder="0" style="border:0" style="pointer-events:none;"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyALv_yI3y6y6i-aAbOoq0rG1Z5uxAf33rU
+                    &q=São Paulo,Brazil" allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <div class="card mb-3">
+
+                <div class="card-block text-xs-center">
+
+                    <p class="lead">Put here your formmail service!</p>
+
+                </div>
+            </div>
+
+            <div class="card-deck-wrapper mb-3">
+                <div class="card-deck">
+
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <h4 class="card-title mb-0"><i class="fa fa-envelope"></i> Email</h4>
+                        </div>
+                        <div class="card-block">
+                            <p class="card-text">firminoata[at]gmail.com</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </article>
+
+    </div>
+</main>
+{{/post}}

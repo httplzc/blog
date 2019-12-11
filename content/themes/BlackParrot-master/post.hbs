@@ -1,0 +1,178 @@
+{{!< default}}
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+{{! Header & Cover }}
+<header class="bg-primary set-shadow mbs-cover mb-0 fadeIn animated">
+    <div class="cover-bg" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+	{{> navbar}}
+
+	<div class="cover-inner">
+	    <div class="container">
+
+	        <div class="text-xs-center fadeIn animated">
+	        	<div class="mb-1">
+		            {{#foreach tags}}
+		            <a href="{{url}}" title="{{name}}" class="btn btn-tag btn-outline-secondary tag-{{id}} internal-link"><i class="fa fa-tag"></i> {{name}}</a>
+		            {{/foreach}}
+	            </div>
+	            <h1 class="display-4 font-weight-bold">
+	            	<a href="{{url absolute="true"}}" title="{{title}}" class="internal-link">{{title}}</a>
+	            </h1>
+	            <p class="msb-desc-w">
+	                {{#author}}
+	                <a href="{{url}}" class="internal-link" title="{{name}}">{{#if image}}<img class="rounded-circle" alt="{{name}}" src="{{image}}">{{/if}} {{name}}</a>{{/author}} • <i class="fa fa-calendar"></i> <time class="post-date" datetime="{{date format='MM/DD/YYYY'}}">{{date format="MM/DD/YYYY"}}</time>
+	            </p>
+	        </div>
+
+	    </div>
+	</div>
+</header>
+
+<main class="container" role="main">
+    <div class="row">
+
+        <article class="col-xs-12 article">
+
+            <div class="card mb-2">
+                <div class="p-3">
+                    {{content}}
+                </div>
+
+                <div class="share-post">
+
+                	<div class="card card-block mb-0">
+						<h5 class="mb-0 text-xs-center text-muted">Share this Post:</h5>
+                	</div>
+
+					<div class="card-group">
+						<div class="card mb-0 b-l-0 text-xs-left" data-sr-id="1" style="">
+							<a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a>
+						</div>
+						<div class="card mb-0 text-xs-center" data-sr-id="2" style="">
+							<a href="https://twitter.com/intent/tweet?text={{title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="btn btn-twitter btn-lg btn-block"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a>
+						</div>
+						<div class="card mb-0 text-xs-right" data-sr-id="3" style="">
+							<a href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" class="btn btn-gplus btn-lg btn-block"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a>
+						</div>
+					</div>
+
+				</div>
+
+                <div class="p-2 card-inverse bg-primary author-info">
+                    {{#author}}
+                    <div class="media mb-0">
+                        {{#if image}}
+                        <figure class="media-left mb-0">
+                            <a href="{{url}}" title="Read more posts by {{name}}" class="internal-link">
+                                <img alt="{{name}}" src="{{image}}" class="avatar img-thumbnail">
+                            </a>
+                        </figure>
+                        {{/if}}
+
+                        <section class="media-body">
+                            <h4 class="font-weight-bold">
+                                <a href="{{url}}" class="card-link internal-link" title="Read more posts by {{name}}">{{name}}</a>
+                            </h4>
+                            {{#if bio}}
+                            <p class="card-text">
+                                {{bio}}
+                            </p>
+                            {{else}}
+                            <p class="card-text">Read <a href="{{url}}" title="Leia mais posts" class="font-weight-bold internal-link">more posts</a> about this author.</p>
+                            {{/if}}
+                            {{#if location}}
+                            <span class="text-muted"><i class="fa fa-map-marker"></i> {{location}}</span>{{/if}} {{#if website}}•
+                            <span class="text-muted"><i class="fa fa-link"></i> <a href="{{website}}" class="card-link">{{website}}</a></span>
+                            {{/if}}
+                        </section>
+
+                    </div>
+                    {{/author}}
+                </div>
+
+            </div>
+
+            {{!-- Comments hidden-xs-up--}}
+            <div class="card mb-3">
+				<div class="card-header bg-inverse card-inverse">
+					<h3 class="mb-0 text-xs-center card-text">
+                        <i class="fa fa-comments"></i> Comments
+                    </h3>
+				</div>
+
+                <div id="commentsList" class="card-block">
+					<div id="disqus_thread"></div>
+                </div>
+            </div>
+
+        </article>
+
+        <aside class="col-xs-12">
+            {{!-- Related Posts --}}
+            <div class="card-group mb-3">
+                {{#next_post}}
+                <div class="card card-inverse bg-inverse related">
+                    <a href="{{url}}" title="{{title}}" class="internal-link">
+                        <div class="card-img-cover" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+                        <div class="card-img-overlay">
+
+                            <h2 class="card-title">{{title}}</h2>
+
+                            <p class="card-text">
+                                <small>
+                                    <i class="fa fa-calendar"></i> <time  datetime="{{date format='MM/DD/YYYY'}}">{{date format="MM/DD/YYYY"}}</time>
+                                </small>
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-primary text-xs-center">
+                            <span class="card-title h5"><i class="fa fa-chevron-circle-left"></i> Next Post</span>
+                        </div>
+                    </a>
+                </div>
+                {{/next_post}}
+                {{#prev_post}}
+                <div class="card card-inverse bg-inverse related">
+                    <a href="{{url}}" title="{{title}}"  class="internal-link">
+                        <div class="card-img-cover" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+
+                        <div class="card-img-overlay">
+
+                            <h2 class="card-title">{{title}}</h2>
+
+                            <p class="card-text">
+                                <small>
+                                    <i class="fa fa-calendar"></i> <time  datetime="{{date format='MM/DD/YYYY'}}">{{date format="MM/DD/YYYY"}}</time>
+                                </small>
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-primary text-xs-center">
+                          <span class="card-title h5">Previous Post <i class="fa fa-chevron-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                {{/prev_post}}
+            </div>
+
+        </aside>
+
+    </div>
+</main>
+
+<script type="text/javascript">
+    var disqus_shortname = 'firminoweb';
+    var disqus_identifier = '{{post.id}}';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+{{/post}}
