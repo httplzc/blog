@@ -51,20 +51,20 @@ config = {
         },
 
         //Storage.Now,we can support `qiniu`,`upyun`, `aliyun oss`, `aliyun ace-storage` and `local-file-store`
-        storage: {
-            provider: 'local-file-store'
-        }
+        // storage: {
+        //     provider: 'local-file-store'
+        // }
 
         // or
         // 参考文档： http://www.ghostchina.com/qiniu-cdn-for-ghost/
-        /*storage: {
+       storage: {
             provider: 'qiniu',
-            bucketname: 'your-bucket-name',
-            ACCESS_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            SECRET_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            bucketname: 'httplzcblog',
+            ACCESS_KEY: 'UVb0CNk2g08SS2hvg4XUq6PEY6FmYte3vL3KNtLD',
+            SECRET_KEY: 'mx515wvJXlSrK5UCoWE67apuqu0IbtqgQfcgEiNF',
             root: '/image/',
-            prefix: 'http://your-bucket-name.qiniudn.com'
-        }*/
+            prefix: 'http://cdn.lizechao.com'
+        }
 
         // or
         // 参考文档： http://www.ghostchina.com/upyun-cdn-for-ghost/
@@ -144,6 +144,14 @@ config = {
         // Specify where your content directory lives
         paths: {
             contentPath: path.join(__dirname, '/content/')
+        },
+        storage: {
+            provider: 'qiniu',
+            bucketname: 'httplzcblog',
+            ACCESS_KEY: 'UVb0CNk2g08SS2hvg4XUq6PEY6FmYte3vL3KNtLD',
+            SECRET_KEY: 'mx515wvJXlSrK5UCoWE67apuqu0IbtqgQfcgEiNF',
+            root: '/image/',
+            prefix: 'http://cdn.lizechao.com'
         }
     },
 

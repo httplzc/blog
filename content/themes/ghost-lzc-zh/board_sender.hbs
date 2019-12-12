@@ -7,7 +7,7 @@
       function handleIt() {
        var keyData=$('#keyId')[0].value;
        var valueData=$('#messageId')[0].value;
-       if(keyData.length==0||valueData.length==0)
+       if(keyData.length===0||valueData.length===0)
        {
          showDialog("错误","内容不能为空");
          return

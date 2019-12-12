@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 module.exports = function (res, req) {
-    if (req.session.isLoginFile) {
+    if (req.session.isLogin) {
         var id = req.body.fileId;
         if (!id || id.trim() === "") {
             until.error("缺少参数", res);

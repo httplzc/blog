@@ -1,0 +1,82 @@
+{{!< default}}
+<link href="https://unpkg.com/uppy@0.30.5/dist/uppy.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/jquery@3.4.0/dist/jquery.js"></script>
+<script src="https://unpkg.com/uppy@0.30.5/dist/uppy.min.js"></script>
+<script src="https://unpkg.com/browser-md5-file@1.1.1/dist/index.umd.js"></script>
+<script>
+    window.CHUAN = {"qiniuUploadToken": "{{uploadToken}}"};
+    $(function () {
+        $(".sync_btn").hide();
+        $(".sync_btn").click(function () {
+            if (window.uploadFinishFiles == null)
+                return;
+            for (var index in window.uploadFinishFiles) {
+                var realData = window.uploadFinishFiles[index];
+                $.post("/extra_api",
+                        {
+                            a: "upload_file_value",
+                            filename: realData.key.replace("tiny_cloud/",""),
+                            path: `http://cdn.lizechao.com/${realData.key}`
+                        }, function () {
+
+                        });
+
+            }
+            $(".sync_btn").hide();
+            showDialog("提示", "已经同步成功")
+        });
+    });
+</script>
+<script src="{{asset "js/uploadCDN.js"}}"></script>
+<style>
+    .out {
+        padding: 3rem;
+        border-bottom: none;
+        position: relative;
+        background-color: white;
+        margin: 0 auto;
+    }
+
+    .sync_btn {
+        margin-bottom: 0rem;
+        padding: 0.6rem 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #ea6f5a;
+        border-radius: 4px;
+        display: inline-block;
+
+        margin-top: 1.5rem;
+    }
+
+    [class*="btn"] {
+        box-shadow: rgba(0, 0, 0, 0.117647) 0px 2px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 2px;
+    }
+
+    [class*="btn"]:hover {
+        background-color: #c83323;
+    }
+
+    .sync_btn:hover {
+        color: rgb(255, 255, 255)
+    }
+
+    #bottom {
+        margin: auto 0;
+        text-align: center;
+    }
+</style>
+{{>single_page_head page_title="上传CDN" page_subtitle="upload file"}}
+
+<div class="out">
+
+    <div id="main-content">
+        <div id="root"></div>
+        <div id="bottom">
+            <a class="sync_btn">存储文件到小云盘</a>
+        </div>
+    </div>
+
+</div>
+
+
