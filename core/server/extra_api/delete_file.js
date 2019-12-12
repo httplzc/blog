@@ -48,11 +48,7 @@ function deleteFile(filePath) {
     return new Promise(function (success, fail) {
         var realPath = path.join(__dirname, "../..") + filePath;
         fs.unlink(realPath, function (error) {
-            if (error) {
-               fail(error);
-            }
-            else
-                success();
+            success();
         });
     });
 }
