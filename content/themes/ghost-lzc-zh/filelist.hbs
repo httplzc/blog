@@ -3,82 +3,6 @@
 <script type="text/javascript" src="{{asset "js/jquery_form.js"}}"></script>
 
 <style>
-    label {
-        display: block;
-        margin: 2em 2em 2em 2em;
-    }
-
-    a {
-        margin: 1em;
-    }
-
-
-    .pagination {
-        width: 100%;
-    }
-
-    .pagination a {
-        font-family: sans-serif;
-    }
-
-    .pagination {
-        display: inline-block;
-        padding-left: 0;
-        margin: 2rem 0;
-        border-radius: 4px;
-    }
-
-    .pagination li {
-        margin: 0 0.5rem;
-        display: inline-block;
-        line-height: 2rem;
-        vertical-align: middle;
-    }
-
-    .pagination .active {
-        font-weight: 700;
-        border: none;
-        pointer-events: none;
-        background: transparent;
-    }
-
-    .pagination > li > a, .pagination > li > span {
-        position: relative;
-        float: left;
-        padding: 0.5rem 1rem;
-        line-height: 1.5rem;
-        text-decoration: none;
-        color: #337ab7;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        margin-left: -1px;
-        cursor: pointer;
-    }
-
-    .pagination a {
-        font-size: 1.4rem;
-        color: #969696 !important;
-        border: 1px solid #dcdcdc;
-        border-radius: 4px;
-    }
-
-    .pagination .inactive:hover {
-        background-color: rgba(202, 172, 141, 0.17);
-    }
-
-    .comment-list .avatar {
-        margin-right: 1.3rem;
-        width: 3.5rem;
-        height: 3.5rem;
-        padding: 0.2rem;
-        vertical-align: middle;
-        display: inline-block;
-    }
-
-    .pagination a {
-        font-family: sans-serif;
-    }
-
     .delete_btn {
         margin-bottom: 0rem;
         padding: 0.6rem 2rem;
@@ -87,8 +11,7 @@
         background-color: #ea6f5a;
         border-radius: 4px;
         display: inline-block;
-
-        margin-top: 1.5rem;
+        margin-left: 1rem;
     }
 
     [class*="btn"] {
@@ -103,28 +26,110 @@
         color: rgb(255, 255, 255)
     }
 
-    .href_link:link,.href_link:visited{
-        text-decoration:none;  /*超链接无下划线*/
-        color: #0eb8ea;
-        font-size: 2rem;
+    .out {
+        padding: 3rem;
+        max-width: 710px;
+        border-bottom: none;
+        position: relative;
+        background-color: white;
+        margin: 0 auto;
     }
-    .href_link:hover{
-        text-decoration:underline;  /*鼠标放上去有下划线*/
-        color: #0eb8ea;
-        font-size: 2rem;
+
+    .top {
+        margin-left: 1rem;
     }
-      .out{
-           padding:3rem;
-           max-width: 710px;
-           border-bottom: none;
-           position: relative;
-          background-color: white;
-          margin: 0 auto;
-         }
-        .top
-        {
-            margin-left: 1rem;
-        }
+
+    li {
+        text-align: -webkit-match-parent;
+        display: list-item;
+    }
+
+
+    .fav_list_box {
+        box-sizing: border-box;
+        display: block;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .fav_list_title {
+        height: 90px;
+        line-height: 90px;
+        /*border-bottom: 1px solid #e0e0e0;*/
+        display: block;
+    }
+
+    .fav_list_title_h3 {
+        display: inline;
+    }
+
+    .fav_num {
+        font-size: 14px;
+        color: #4d4d4d;
+        float: right;
+    }
+
+    .my_fav_con {
+        display: block;
+    }
+
+    .my_fav_list {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        border: 0;
+        display: block;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .my_fav_list_li {
+        padding: 0.8rem 0;
+        border-top: 1px solid #e0e0e0;
+        list-style: none;
+    }
+
+    .my_fav_list_a {
+        width: 60%;
+        line-height: 24px;
+        font-size: 16px;
+        vertical-align: middle;
+        color: #4d4d4d;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .my_fav_list_label {
+        margin-left: 10%;
+        font-size: 16px;
+        vertical-align: middle;
+        display: contents;
+    }
+
+    .my_fav_list_label span {
+        color: #ccc;
+        margin-right: 15px;
+        vertical-align: middle;
+        display: contents;
+        font-size: 1rem;
+    }
+
+    .cancel_fav {
+        font-style: normal;
+        color: #999;
+        vertical-align: middle;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .my_fav_list_a:hover {
+        color: red;
+    }
 
 </style>
 
@@ -142,8 +147,7 @@
 
                     if (!data.code) {
                         window.location.reload();
-                    }
-                    else {
+                    } else {
                         console.log(JSON.stringify(data.error));
                         alert("删除文件错误");
                     }
@@ -155,25 +159,33 @@
 {{>single_page_head page_title="小云盘" page_subtitle="文件列表"}}
 
 <div class="out">
-
-<div id="file-list" class="file-list">
-    <div>
-        <p><a href="/uploadfile" class="href_link">跳转上传文件</a></p>
-        <div class="top"><span>{{fileCount}}个文件</span></div>
-    </div>
-    {{#files}}
-        <div id={{fileId}} class="file">
-            <a>{{uploadTime}}</a>
-            <a href="{{filePath}}">{{fileName}}</a>
-            <a class="delete_btn">删除</a>
-
+    <div class="fav_list">
+        <div data-v-357a65ed="" class="fav_list_box">
+            <div class="fav_list_title">
+                <h3 class="fav_list_title_h3">我的文件</h3>
+                <div class="fav_num">
+                    共<span>{{fileCount}}</span>个
+                </div>
+            </div>
+            <div class="my_fav_con">
+                <div>
+                    <ul class="my_fav_list">
+                        {{#files}}
+                            <li class="my_fav_list_li" id="{{fileId}}">
+                                <a class="my_fav_list_a" href="{{filePath}}">
+                                    {{fileName}}
+                                </a>
+                                <label class="my_fav_list_label">
+                                    <span class="time">{{uploadTime}}</span>
+                                    <a class="delete_btn"><em>删除</em></a>
+                                </label>
+                            </li>
+                        {{/files}}
+                    </ul>
+                </div>
+            </div>
         </div>
-    {{/files}}
-</div>
-
-<div class="pagination"><!---->
-    {{commentPager currentPage pagerCount}}
-</div>
+    </div>
 
 </div>
 

@@ -13,9 +13,8 @@
                     </ul>
                 </nav><!--/.demo-menu_nav-->
         </div><!--/.row-->
-        <form class="search"  action="/extra_api" accept-charset="UTF-8" method="get">
+        <form class="search"  action="/search" accept-charset="UTF-8" method="get">
             <input type="text" name="keyWord" id="bdcsMain" value="{{keyWord}}" placeholder="搜索"  maxlength="15" class="search-input">
-			<input class="submit" style="display: none" name="a" type="text" value="search"/>
             <a class="search-btn" href="javascript:void(null)"><i class="ic-search"></i></a>
             <!-- <div id="navbar-trending-search"></div> -->
         </form>
@@ -23,9 +22,8 @@
 		<i class="ic-search" id="phone_search"></i>
 		
     </div><!--/.container-fluid-->
-	 <form class="seach_phone"  action="/extra_api" accept-charset="UTF-8" method="get">
+	 <form class="seach_phone"  action="/search" accept-charset="UTF-8" method="get">
             <input type="text" name="keyWord" value="{{keyWord}}" placeholder="搜索"  maxlength="15" class="search-input" id="phone_search_btn">
-			<input class="submit" style="display: none" name="a" type="text" value="search"/>
             <a class="search-btn-phone" href="javascript:void(null)"><i class="ic-search"></i></a>
             <!-- <div id="navbar-trending-search"></div> -->
         </form> 
