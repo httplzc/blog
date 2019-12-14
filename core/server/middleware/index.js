@@ -100,7 +100,7 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
     blogApp.use(themeHandler.configHbsForContext);
 
     blogApp.get('/', function (req, res) {
-        res.redirect("/home_page/index.html");
+        res.render("home_page/index");
     });
 
 
