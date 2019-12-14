@@ -104,6 +104,11 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
     blogApp.use(themeHandler.updateActiveTheme);
     blogApp.use(themeHandler.configHbsForContext);
 
+    blogApp.get('/', function (req, res) {
+        res.redirect("/home_page/index.html");
+    });
+
+
     // Admin only config
     blogApp.use('/ghost', express.static(config.paths.clientAssets, {maxAge: utils.ONE_YEAR_MS}));
 

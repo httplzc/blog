@@ -12,7 +12,7 @@
 
 <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
     <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img id="back_img" src="/back.png" alt="{{@blog.title}}" /><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+        {{#if @blog.logo}}<a class="blog-logo" href="/blog"><img id="back_img" src="/back.png" alt="{{@blog.title}}" /><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
         {{#if @blog.navigation}}  
             <a class="menu-button icon-menu" href="#"><span class="word">主页</span></a>
         {{/if}}
