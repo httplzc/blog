@@ -1,42 +1,42 @@
-var bodyParser      = require('body-parser'),
-    config          = require('../config'),
-    errors          = require('../errors'),
-    express         = require('express'),
-    logger          = require('morgan'),
-    path            = require('path'),
-    routes          = require('../routes'),
-    slashes         = require('connect-slashes'),
-    storage         = require('../storage'),
-    passport        = require('passport'),
-    utils           = require('../utils'),
-    sitemapHandler  = require('../data/xml/sitemap/handler'),
+var bodyParser = require('body-parser'),
+    config = require('../config'),
+    errors = require('../errors'),
+    express = require('express'),
+    logger = require('morgan'),
+    path = require('path'),
+    routes = require('../routes'),
+    slashes = require('connect-slashes'),
+    storage = require('../storage'),
+    passport = require('passport'),
+    utils = require('../utils'),
+    sitemapHandler = require('../data/xml/sitemap/handler'),
 
-    authStrategies   = require('./auth-strategies'),
-    busboy           = require('./ghost-busboy'),
-    auth             = require('./auth'),
-    cacheControl     = require('./cache-control'),
-    checkSSL         = require('./check-ssl'),
-    decideIsAdmin    = require('./decide-is-admin'),
-    oauth            = require('./oauth'),
-    privateBlogging  = require('./private-blogging'),
-    redirectToSetup  = require('./redirect-to-setup'),
-    serveSharedFile  = require('./serve-shared-file'),
-    spamPrevention   = require('./spam-prevention'),
-    staticTheme      = require('./static-theme'),
-    themeHandler     = require('./theme-handler'),
-    uncapitalise     = require('./uncapitalise'),
-	extra_api       = require('../extra_api'),
-	extra_page      = require('../extra_page'),
-	
+    authStrategies = require('./auth-strategies'),
+    busboy = require('./ghost-busboy'),
+    auth = require('./auth'),
+    cacheControl = require('./cache-control'),
+    checkSSL = require('./check-ssl'),
+    decideIsAdmin = require('./decide-is-admin'),
+    oauth = require('./oauth'),
+    privateBlogging = require('./private-blogging'),
+    redirectToSetup = require('./redirect-to-setup'),
+    serveSharedFile = require('./serve-shared-file'),
+    spamPrevention = require('./spam-prevention'),
+    staticTheme = require('./static-theme'),
+    themeHandler = require('./theme-handler'),
+    uncapitalise = require('./uncapitalise'),
+    extra_api = require('../extra_api'),
+    extra_page = require('../extra_page'),
 
-    ClientPasswordStrategy  = require('passport-oauth2-client-password').Strategy,
-    BearerStrategy          = require('passport-http-bearer').Strategy,
+
+    ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy,
+    BearerStrategy = require('passport-http-bearer').Strategy,
 
     middleware,
     setupMiddleware;
-	
-	var cookieParser = require('cookie-parser');
-	var session = require('express-session');
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 middleware = {
     busboy: busboy,
@@ -66,7 +66,6 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
     // Make sure 'req.secure' is valid for proxied requests
     // (X-Forwarded-Proto header will be checked, if present)
     blogApp.enable('trust proxy');
-	
 
 
     // Logging configuration
@@ -77,9 +76,6 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
             blogApp.use(logger('dev', logging));
         }
     }
-	
-
-	
 
 
     // Favicon
@@ -89,16 +85,15 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
     blogApp.use(serveSharedFile('shared/ghost-url.js', 'application/javascript', utils.ONE_HOUR_S));
     blogApp.use(serveSharedFile('shared/ghost-url.min.js', 'application/javascript', utils.ONE_HOUR_S));
 
-	
 
-	
     // Static assets
     blogApp.use('/shared', express.static(path.join(corePath, '/shared'), {maxAge: utils.ONE_HOUR_MS}));
     blogApp.use('/content/images', storage.getStorage().serve());
     blogApp.use('/public', express.static(path.join(corePath, '/built/public'), {maxAge: utils.ONE_YEAR_MS}));
-	blogApp.use('/',express.static(path.join(corePath, '/outallow'), {maxAge: utils.ONE_HOUR_MS}));
-	blogApp.use('/file',express.static(path.join(corePath, '/file'), {maxAge: utils.ONE_HOUR_MS}));
-	//console.log(path.join(corePath, '/outallow'));
+    blogApp.use('/', express.static(path.join(corePath, '/static_page'), {maxAge: utils.ONE_WEEK_MS}));
+    blogApp.use('/', express.static(path.join(corePath, '/outallow'), {maxAge: utils.ONE_HOUR_MS}));
+    blogApp.use('/file', express.static(path.join(corePath, '/file'), {maxAge: utils.ONE_HOUR_MS}));
+    //console.log(path.join(corePath, '/outallow'));
     // First determine whether we're serving admin or theme content
     blogApp.use(decideIsAdmin);
     blogApp.use(themeHandler.updateActiveTheme);
@@ -121,10 +116,7 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
 
     // Theme only config
     blogApp.use(staticTheme());
-	
-	
 
-	
 
     // Check if password protected blog
     blogApp.use(privateBlogging.checkIsPrivate); // check if the blog is protected
@@ -148,31 +140,27 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
     blogApp.use(uncapitalise);
 
 
-	
-						//cookies
-	blogApp.use(cookieParser());
-	
-	blogApp.use(session({
-    secret: 'lzc_session',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {secure: false, maxAge: 6000000}
-    // store: new redisStore()
-}));
-	
-	
+    //cookies
+    blogApp.use(cookieParser());
+
+    blogApp.use(session({
+        secret: 'lzc_session',
+        resave: false,
+        saveUninitialized: true,
+        cookie: {secure: false, maxAge: 6000000}
+        // store: new redisStore()
+    }));
+
+
     // Body parsing
     blogApp.use(bodyParser.json({limit: '10mb'}));
     blogApp.use(bodyParser.urlencoded({extended: true, limit: '10mb'}));
 
 
+    //我的额外api
+    extra_api(blogApp, middleware);
+    extra_page(blogApp, middleware);
 
-
-
-		//我的额外api
-	extra_api(blogApp,middleware);
-	extra_page(blogApp,middleware);
-	
     blogApp.use(passport.initialize());
 
     // ### Caching
@@ -204,7 +192,7 @@ setupMiddleware = function setupMiddleware(blogApp, adminApp) {
 
     // 500 Handler
     blogApp.use(errors.error500);
-	
+
 
 };
 
